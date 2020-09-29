@@ -5,11 +5,17 @@ function getLocalAddress(mac){
 	let its=Object.values(interfaces);
 
 	for(let int of its){
-		for(let o of int)
-			if(o.family=="IPv4")
+		for(let o of int){
+			if(o.family!="IPv4")continue;
+
+			if(mac){
+				if(o.mac==mac)
 				return o.address;
+			}else
+				return o.address;
+			
+		}
 	}
 	throw new Error("can not find the local address")	;
 };
-
 module.exports = getLocalAddress;
