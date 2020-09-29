@@ -37,6 +37,11 @@ class TCPClient extends EventEmitter{
 		this.sock=net.connect(addr.port,addr.address);
 		this.sock.on("connect",this._onSocketConnected.bind(this));
 		this.sock.on("close",this._onSocketClose.bind(this));
+		this.sock.on("error",this._onSocketError.bind(this));
+		
+	}
+	_onSocketError(){
+		
 	}
 	async _onSocketConnected(){
 		if(this.state!="close")return;

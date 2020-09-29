@@ -58,6 +58,7 @@ class TCPServer extends EventEmitter{
 		this.sock.on("listening",this._handleSReady.bind(this));
 		this.sock.on("close",this._handleSClose.bind(this));
 		this.sock.on("connection",this._handleConnection.bind(this));	
+		this.sock.on("clientError",()=>{});	
 
 		this.ticker=setInterval(()=>this._tickConnectons(),1000);
 	}
