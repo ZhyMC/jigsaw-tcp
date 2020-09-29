@@ -28,7 +28,8 @@
 server.js    
 ```
 const {TCPClient,TCPServer} = require("jigsaw-tcp");
-const {jigsaw} = require("jigsaw.js");
+const {jigsaw,domainserver} = require("jigsaw.js")("127.0.0.1","127.0.0.1");
+domainserver();
 
 let jg=new jigsaw("jgtcpserver");
 let server=new TCPServer(jg);
@@ -55,7 +56,7 @@ server.on("leave",(conn,id)=>{
 client.js
 ```
 const {TCPClient,TCPServer} = require("jigsaw-tcp");
-const {jigsaw} = require("jigsaw.js");
+const {jigsaw} = require("jigsaw.js")("127.0.0.1","127.0.0.1");
 
 let jg=new jigsaw();
 let client=new TCPClient(jg,"jgtcpserver");
@@ -77,7 +78,8 @@ client.on("close",()=>{
 streamServer.js    
 ```
 const {TCPClient,TCPServer} = require("jigsaw-tcp");
-const {jigsaw} = require("jigsaw.js");
+const {jigsaw,domainserver} = require("jigsaw.js")("127.0.0.1","127.0.0.1");
+domainserver();
 
 let jg=new jigsaw("streamserver");
 let server=new TCPServer(jg);
@@ -92,7 +94,7 @@ server.on("enter",(conn,id)=>{
 streamPublisher.js    
 ```
 const {TCPClient,TCPServer} = require("jigsaw-tcp");
-const {jigsaw} = require("jigsaw.js");
+const {jigsaw} = require("jigsaw.js")("127.0.0.1","127.0.0.1");
 
 let jg=new jigsaw("streampublisher");
 let publisher=new TCPClient(jg,"streamserver");
@@ -109,7 +111,7 @@ publisher.on("ready",()=>{
 streamPlayer.js    
 ```
 const {TCPClient,TCPServer} = require("jigsaw-tcp");
-const {jigsaw} = require("jigsaw.js");
+const {jigsaw} = require("jigsaw.js")("127.0.0.1","127.0.0.1");
 
 let jg=new jigsaw();
 let player=new TCPClient(jg,"streamserver");
