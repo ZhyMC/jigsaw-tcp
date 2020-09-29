@@ -103,7 +103,7 @@ let chunkid=0;
 publisher.on("ready",()=>{
 	let sock=publisher.getSocket();
 	setInterval(()=>{
-		sock.write("hello,i am chunk "+chunkid);
+		sock.write("hello,i am chunk "+(chunkid++));
 	},100);
 });
 ```
