@@ -1,3 +1,5 @@
+const os=require("os");
+
 function getLocalAddress(mac){
 	let interfaces=os.networkInterfaces();
 	let its=Object.values(interfaces);
