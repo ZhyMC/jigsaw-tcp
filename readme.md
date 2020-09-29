@@ -73,7 +73,7 @@ client.on("close",()=>{
 })
 ```
 
-### 1.3.2 流的分发
+#### 1.3.2 流的分发
     
 streamServer.js    
 ```
