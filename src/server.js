@@ -101,6 +101,7 @@ class TCPServer extends EventEmitter{
 		}
 	}
 	async _handleConnection(conn){
+		conn.on("error",()=>{});
 		conn.on("close",()=>this._handleSocketClose(conn));
 		conn.once("data",(data)=>this._handleFirstChunk(conn,data));
 
